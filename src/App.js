@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Navbar from './componets/Navbar'; // Corrected import path
+import Home from './componets/Home'; // Corrected import path and capitalized component name
+import About from './componets/About'; // Corrected import path and capitalized component name
+import Services from './componets/Services'; // Corrected import path and capitalized component name
+import Contact from './componets/Contacts'; // Corrected import path and capitalized component name
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} /> {/* Updated to use 'element' prop */}
+        <Route path="/about" element={<About />} /> {/* Updated to use 'element' prop */}
+        <Route path="/services" element={<Services />} /> {/* Updated to use 'element' prop */}
+        <Route path="/contacts" element={<Contact />} /> {/* Updated to use 'element' prop */}
+      </Routes>
+    </Router>
   );
 }
 
